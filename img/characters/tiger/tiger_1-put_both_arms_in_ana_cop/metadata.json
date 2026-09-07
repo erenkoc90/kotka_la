@@ -1,0 +1,46 @@
+{
+  "group_id": "5e659277-b7b4-40ec-973a-c8de970e27c7",
+  "states": [
+    {
+      "character": {
+        "id": "9c052777-a5d6-4735-b916-2f04477817ef",
+        "name": "put both arms in ana (copy)",
+        "prompt": "keep the colors same as you see in the picture. this is a tiger-like animal, original is a decorative pillow that is embroided woith wool, inside it s also filled with wool. turn in into a playable character that walks on its two feet",
+        "size": {
+          "width": 256,
+          "height": 256
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-08-25T12:33:14.836741+00:00"
+      },
+      "folder": "put_both_arms_in_ana_copy",
+      "frames": {
+        "rotations": {
+          "south": "put_both_arms_in_ana_copy/rotations/south.png",
+          "south-east": "put_both_arms_in_ana_copy/rotations/south-east.png",
+          "east": "put_both_arms_in_ana_copy/rotations/east.png",
+          "north-east": "put_both_arms_in_ana_copy/rotations/north-east.png",
+          "north": "put_both_arms_in_ana_copy/rotations/north.png",
+          "north-west": "put_both_arms_in_ana_copy/rotations/north-west.png",
+          "west": "put_both_arms_in_ana_copy/rotations/west.png",
+          "south-west": "put_both_arms_in_ana_copy/rotations/south-west.png"
+        },
+        "animations": {
+          "Prompt_Accurate_4-frame_2D_pixel_art_character_wal": {
+            "north": [
+              "put_both_arms_in_ana_copy/animations/Prompt_Accurate_4-frame_2D_pixel_art_character_wal/north/frame_000.png",
+              "put_both_arms_in_ana_copy/animations/Prompt_Accurate_4-frame_2D_pixel_art_character_wal/north/frame_001.png",
+              "put_both_arms_in_ana_copy/animations/Prompt_Accurate_4-frame_2D_pixel_art_character_wal/north/frame_002.png",
+              "put_both_arms_in_ana_copy/animations/Prompt_Accurate_4-frame_2D_pixel_art_character_wal/north/frame_003.png",
+              "put_both_arms_in_ana_copy/animations/Prompt_Accurate_4-frame_2D_pixel_art_character_wal/north/frame_004.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-08-25T19:23:33.075291"
+}

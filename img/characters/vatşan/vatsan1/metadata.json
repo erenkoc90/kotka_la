@@ -1,0 +1,36 @@
+{
+  "group_id": "92f201d5-6b91-4fc9-9cde-c82d13d8f50a",
+  "states": [
+    {
+      "character": {
+        "id": "2f79fee8-b1c5-42fd-8a62-ae34ea8ede71",
+        "name": "Idle",
+        "prompt": "please turn the first south look also a pixel arted frame. do not use the original image. \nthis is a rabbit, 2 legs and feet in front and two in the back. fluffy looking.",
+        "size": {
+          "width": 192,
+          "height": 196
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-08-25T20:33:54.725915+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-08-25T20:42:41.846397"
+}

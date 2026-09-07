@@ -1,0 +1,35 @@
+{
+  "group_id": "9dfe7bcc-4725-4920-b6d3-fca1fe951ae2",
+  "states": [
+    {
+      "character": {
+        "id": "b6b88d56-393e-4c20-849b-0ec78b888e70",
+        "name": "sitting down doing n",
+        "prompt": "it is an emroided pillow in shape of a cat.it doesnt have legs, this oen is also filled with wool",
+        "size": {
+          "width": 256,
+          "height": 256
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-08-25T17:46:00.819589+00:00"
+      },
+      "folder": "sitting_down_doing_n",
+      "frames": {
+        "rotations": {
+          "south": "sitting_down_doing_n/rotations/south.png",
+          "south-east": "sitting_down_doing_n/rotations/south-east.png",
+          "east": "sitting_down_doing_n/rotations/east.png",
+          "north-east": "sitting_down_doing_n/rotations/north-east.png",
+          "north": "sitting_down_doing_n/rotations/north.png",
+          "north-west": "sitting_down_doing_n/rotations/north-west.png",
+          "south-west": "sitting_down_doing_n/rotations/south-west.png"
+        },
+        "animations": {}
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-08-25T19:59:50.055442"
+}

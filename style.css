@@ -1,0 +1,287 @@
+:root {
+  --lila_light1: #ede0f2;
+  --lila_light2: #d1b1de;
+  --lila_light3: #b780cc;
+  --lila: #975cad;
+  --lila_dark1: #6d417d;
+  --lila_dark2: #43264d;
+  --lila_dark3: #1c0d22;
+  --pink_light1: #ffeaf1;
+  --pink_light2: #feadce;
+  --pink_light2a: rgba(254, 173, 206, 0.4);
+  --pink: #fd62ad;
+  --pink_a: rgba(253, 98, 173, 0.6);
+  --pink_dark1: #e3128d;
+  --pink_dark1a: rgba(227, 18, 141, 0.4);
+  --pink_dark1: #a90b68;
+  --pink_dark1: #6e0442;
+  --pink_dark1: #38011f;
+  --blue_light1: #bbe4ff;
+  --blue_light2: #5bc2ff;
+  --blue: #009cdf;
+  --blue_dark1: #0079af;
+  --blue_dark2: #00557c;
+  --blue_dark3: #00314a;
+  --green_light1: #e5fec4;
+  --green_light1a: rgba(229, 254, 196, 0.9);
+  --green_light2: #aae23b;
+  --green: #8ab82e;
+  --green_dark1: #6e9323;
+  --green_dark2: #506d17;
+  --green_dark3: #32460c;
+  --gray_light1: #edeff0;
+  --gray_light2: #c2c9cc;
+  --gray: #9ba3a8;
+  --gray_dark1: #7b8285;
+  --gray_dark2: #595f61;
+  --gray_dark3: #383b3d;
+  --black: #191b1c;
+}
+
+.pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 15px),
+    5px calc(100% - 15px),
+    5px calc(100% - 10px),
+    10px calc(100% - 5px),
+    15px calc(100% - 5px),
+    15px 100%,
+    calc(100% - 15px) 100%,
+    calc(100% - 15px) calc(100% - 5px),
+    calc(100% - 10px) calc(100% - 5px),
+    calc(100% - 5px) calc(100% - 10px),
+    calc(100% - 5px) calc(100% - 15px),
+    100% calc(100% - 15px),
+    100% 15px,
+    calc(100% - 5px) 15px,
+    calc(100% - 5px) 10px,
+    calc(100% - 10px) 5px,
+    calc(100% - 15px) 5px,
+    calc(100% - 15px) 0px,
+    15px 0px,
+    15px 5px,
+    10px 5px,
+    5px 10px,
+    5px 15px,
+    0px 15px
+  );
+}
+
+*::selection {
+  background-color: var(--pink_dark1);
+}
+
+@font-face {
+  font-family: geist;
+  src: url(geist.ttf);
+}
+h1 {
+  font-size: 90pt;
+}
+h2 {
+  font-size: 50pt;
+  font-weight: 600;
+}
+.darktext {
+  color: var(--gray_dark3);
+}
+textarea {
+  min-width: 100%;
+  height: 300px;
+  background-color: var(--pink_light1);
+  color: var(--green_dark2);
+  font-size: 15pt;
+  border: 1px solid var(--pink_dark2);
+  border-radius: 3px;
+}
+
+a:any-link {
+  text-decoration: none;
+  color: var(--gray_dark3);
+}
+
+body {
+  margin: 0px;
+  max-width: 250vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green_light2);
+  font-family: "geist", Helvetica, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+.button_nav {
+  margin: 10px;
+  padding: 15px;
+  font-size: 25pt;
+  font-weight: bold;
+  border: 2px solid var(--green_dark3);
+  background-color: var(--green_light1);
+}
+.button_nav:hover {
+  background-color: var(--pink);
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15pt;
+  margin: 20px;
+  margin-bottom: 0px;
+  padding: 20px 20px 0px 20px;
+
+  width: 100%;
+  /*min-height: calc(100% - 20px);*/
+}
+
+aside {
+  border: 2px solid var(--green_dark3);
+  flex-grow: 1;
+  margin: 20px;
+  padding: 10px;
+  min-height: 100vh;
+  /*min-width: 10vw;*/
+  background-color: var(--green_light1a);
+}
+article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+  border: 2px solid var(--green_dark3);
+  margin: 20px;
+  padding: 10px;
+  min-height: 100vh;
+  max-width: 50%;
+  background-color: var(--green_light1a);
+  color: var(--gray_light1);
+}
+
+.main_container {
+  box-sizing: border-box;
+  display: inline-block;
+  flex-direction: column;
+  /*align-items: center;*/
+  margin: 30px;
+  padding: 30px;
+  height: calc(100% - 50px);
+  width: calc(100% - 50px);
+  background-color: var(--pink_a);
+}
+
+.container_game {
+  margin: 30px;
+  padding: 30px;
+  height: calc(100% - 50px);
+  width: calc(100% - 50px);
+  background-color: var(--pink_a);
+}
+
+#welcome {
+  text-align: center;
+  margin: 5px;
+}
+#introduction {
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 150px;
+}
+
+.aside_container {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 5px;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  background-color: var(--pink_dark1a);
+}
+
+footer {
+  border: 2px solid var(--green_dark3);
+  margin: 0px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: var(--green_light1a);
+  min-height: 8vh;
+  min-width: calc(96% - 20px);
+}
+
+.footer_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
+  min-height: 7vh;
+  width: calc(100% - 10px);
+  background-color: var(--pink_light2a);
+}
+
+.button_footer {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 12pt;
+  font-weight: bold;
+  width: 25%;
+  text-align: center;
+
+  /*border: 0px dotted var(--green_dark3);*/
+  background-color: var(--pink_a);
+}
+#instagram {
+  margin-left: 10px;
+}
+
+#imprint {
+  margin-right: 10px;
+}
+
+.button_footer:hover {
+  background-color: var(--pink);
+  color: white;
+}
+
+.striped-shadow-box::after {
+  /* 1. ACTIVATE THE GHOST ELEMENT */
+  content: "";
+  position: absolute;
+
+  /* 2. POSITION AND OFFSET (THE SHADOW EFFECT) */
+  top: 12px;
+  left: 12px;
+  width: 100%;
+  height: 100%;
+
+  /* 3. PUSH TO THE BACK */
+  z-index: -1;
+
+  /* 4. MATCH THE FRONT BOX STYLE */
+  border: 3px solid #000000;
+
+  /* 5. PAINT THE STRIPES */
+  background: repeating-linear-gradient(
+    45deg,
+    #000000,
+    #000000 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}

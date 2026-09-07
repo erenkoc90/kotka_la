@@ -1,0 +1,111 @@
+#main-game {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15pt;
+  margin: 20px;
+  margin-bottom: 0px;
+  padding: 20px 20px 0px 20px;
+
+  width: 100%;
+  height: calc(100% - 20px);
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* flex-grow: 2; */
+  border: 2px solid var(--green_dark3);
+  margin: 20px;
+  padding: 10px;
+  /* min-height: 100vh; */
+  max-width: 100%;
+  background-color: var(--green_light1a);
+  color: var(--gray_light1);
+}
+.game_container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*align-items: center;*/
+  margin: 30px;
+  padding: 30px;
+
+  width: 90%;
+  max-width: 800px;
+  background-color: var(--pink_a);
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 20px;
+  margin: 10px;
+  background-color: aliceblue;
+  width: clamp(300px, 80vw, 700px); /* min, tercih edilen, max */
+  aspect-ratio: 1 / 1; /* her zaman kare kalır, height otomatik hesaplanır */
+
+  box-sizing: border-box;
+}
+
+.box {
+  border: 2px solid black;
+  animation: popUp 0.5s ease-in-out;
+}
+
+.box-closed {
+  background-color: rgba(0, 0, 0, 0.393);
+  width: 100%;
+  height: 100%;
+  display: none;
+  box-sizing: border-box;
+}
+img {
+  /* box-sizing: border-box; */
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.removeBox {
+  animation: removeBox 0.3s ease-in-out;
+}
+
+@keyframes removeBox {
+  0% {
+    transform: scale(1);
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  /* 70%{transform: scale(0.7);
+        transform: rotate(300deg);
+
+    } */
+
+  100% {
+    transform: scale(0.1);
+    transform: rotate(100deg);
+    opacity: 0;
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0); /* Startet unsichtbar/winzig */
+    opacity: 0;
+  }
+  70% {
+    transform: scale(
+      1.1
+    ); /* Leichtes "Ãœbersteuern" fÃ¼r einen coolen Bounce-Effekt */
+  }
+  100% {
+    transform: scale(1); /* Endet in NormalgrÃ¶ÃŸe */
+    opacity: 1;
+  }
+}

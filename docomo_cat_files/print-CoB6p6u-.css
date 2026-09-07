@@ -1,0 +1,1 @@
+cp-navigation,.cp-toolbox--tools,.page-footer a,.page-footer nav{display:none}body{display:block}.tiles li{page-break-inside:avoid;-moz-column-break-inside:avoid;break-inside:avoid}a[href^=http]:after{content:" (" attr(href) ")"}
