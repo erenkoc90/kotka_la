@@ -2,6 +2,9 @@ const game = document.querySelector(".game");
 let eightArray = [];
 let sixteenArray = [];
 let arrayClickedBoxes = [];
+let score = 0;
+const scoreText = document.getElementById("score");
+const winScreen = document.querySelector(".win-screen");
 
 // Class Box for box constructor
 class Box {
@@ -68,14 +71,24 @@ class Box {
         }
       }
       if (arrayClickedBoxes.length == 2) {
-        console.log(arrayClickedBoxes[0]);
-        console.log(arrayClickedBoxes[1]);
         this.compare();
         if (this.isCardPaired == true) {
           console.log("PAIRED");
+          score++;
+          scoreText.innerText = score;
+          console.log(arrayClickedBoxes[0]);
+          console.log(arrayClickedBoxes[1]);
+          // this.element.classList.add("box-open");
+          // this.element.classList.remove("box");
+          console.log(score);
+          arrayClickedBoxes[0].element.classList.add("box-paired");
+          arrayClickedBoxes[1].element.classList.add("box-paired");
+          arrayClickedBoxes[0].element.classList.remove("box");
+          arrayClickedBoxes[1].element.classList.remove("box");
           arrayClickedBoxes[0].isCardPaired = true;
           arrayClickedBoxes[1].isCardPaired = true;
           arrayClickedBoxes = [];
+          checkWin();
           return;
         } else {
           console.log("TRY AGAIN!");
@@ -145,6 +158,12 @@ function shuffle(arrayName) {
 function loadBoard() {
   for (let i = 0; i < sixteenArray.length; i++) {
     new Box(sixteenArray[i]);
+  }
+}
+
+function checkWin() {
+  if (score == 8) {
+    winScreen.style.display = "block";
   }
 }
 
