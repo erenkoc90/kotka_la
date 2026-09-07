@@ -76,13 +76,13 @@ class Box {
           console.log("PAIRED");
           score++;
           scoreText.innerText = score;
-          console.log(arrayClickedBoxes[0]);
-          console.log(arrayClickedBoxes[1]);
-          // this.element.classList.add("box-open");
-          // this.element.classList.remove("box");
-          console.log(score);
+          console.log("SCORE: " + score);
           arrayClickedBoxes[0].element.classList.add("box-paired");
           arrayClickedBoxes[1].element.classList.add("box-paired");
+          arrayClickedBoxes[0].element.style.animation =
+            "openUp 1.5s ease-in-out forwards";
+          arrayClickedBoxes[1].element.style.animation =
+            "openUp 1.5s ease-in-out forwards";
           arrayClickedBoxes[0].element.classList.remove("box");
           arrayClickedBoxes[1].element.classList.remove("box");
           arrayClickedBoxes[0].isCardPaired = true;
@@ -92,11 +92,22 @@ class Box {
           return;
         } else {
           console.log("TRY AGAIN!");
-          setTimeout(() => {
-            arrayClickedBoxes[0].flip();
-            arrayClickedBoxes[1].flip();
-            arrayClickedBoxes = [];
-          }, 1000);
+          arrayClickedBoxes[0].element.style.animation =
+            "paired 0.7s ease-in-out forwards";
+          arrayClickedBoxes[1].element.style.animation =
+            "paired 0.7s ease-in-out forwards";
+          arrayClickedBoxes[0].element.addEventListener(
+            "animationend",
+            () => {
+              console.log("ANIMATION END TETIKLENDI");
+              arrayClickedBoxes[0].element.style.animation = "";
+              arrayClickedBoxes[1].element.style.animation = "";
+              arrayClickedBoxes[0].flip();
+              arrayClickedBoxes[1].flip();
+              arrayClickedBoxes = [];
+            },
+            { once: true }
+          );
         }
       }
     });
@@ -157,7 +168,9 @@ function shuffle(arrayName) {
 
 function loadBoard() {
   for (let i = 0; i < sixteenArray.length; i++) {
-    new Box(sixteenArray[i]);
+    setTimeout(() => {
+      new Box(sixteenArray[i]);
+    }, i * 25);
   }
 }
 
