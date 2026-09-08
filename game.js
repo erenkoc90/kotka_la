@@ -4,6 +4,7 @@ let sixteenArray = [];
 let arrayClickedBoxes = [];
 let score = 0;
 const scoreText = document.getElementById("score");
+const timeText = document.getElementById("time-value");
 const winScreen = document.querySelector(".win-screen");
 
 // Class Box for box constructor
@@ -180,6 +181,21 @@ function checkWin() {
   }
 }
 
+function startTimer(time) {
+  let counter = setInterval(timer, 1000);
+  function timer() {
+    timeText.innerText = time;
+    time--;
+    timeText.innerText = time;
+    if (time == 0) {
+      clearInterval(counter);
+      return;
+    }
+  }
+}
+
+function scoreCounter() {}
+
 randomEight();
 sixteenArray = eightArray.concat(eightArray);
 //console.log([...sixteenArray]);
@@ -189,3 +205,4 @@ shuffle(sixteenArray);
 //console.log(sixteenArray[0]);
 
 loadBoard();
+startTimer(100);
