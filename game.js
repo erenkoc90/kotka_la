@@ -5,13 +5,17 @@ let arrayClickedBoxes = [];
 let score = 0;
 
 let isTimeUp = false;
+let isGameWon = false;
 const scoreText = document.getElementById("score-value");
 const scoreH3 = document.querySelector("#score");
 const timeText = document.getElementById("time-value");
 const winScreen = document.querySelector(".win-screen");
 const loseScreen = document.querySelector(".lose-screen");
 const scoreTimeScreen = document.querySelector("#st-container");
-
+const replayScreen = document.querySelector(".replay-screen");
+replayScreen.addEventListener("click", () => {
+  location.reload();
+});
 // Class Box for box constructor
 class Box {
   flip() {
@@ -54,10 +58,7 @@ class Box {
       this.img.style.display = "none";
       this.backSide.style.display = "block";
     }
-    // if (this.isCardFlipped == true) {
-    //   this.img.style.display = "block";
-    //   this.backSide.style.display = "none";
-    // }
+
     this.element.addEventListener("click", () => {
       scoreText.style.animation = "";
       if (this.isCardPaired == true) {
@@ -73,27 +74,15 @@ class Box {
         this.flip();
         if (this.isCardFlipped == true) {
           arrayClickedBoxes.push(this);
-          console.log(arrayClickedBoxes);
         }
         if (this.isCardFlipped == false) {
           arrayClickedBoxes.splice(arrayClickedBoxes.indexOf(this), 1);
-          console.log(arrayClickedBoxes);
         }
       }
       if (arrayClickedBoxes.length == 2) {
         this.compare();
         if (this.isCardPaired == true) {
-          console.log("PAIRED");
-          // score += 10;
-          // scoreText.innerText = score;
           scoreUpper();
-          console.log(scoreUpper());
-          console.log(score);
-          console.log(scoreText.innerText);
-          console.log(parseInt(scoreText.innerText));
-
-          // score = scoreUpper();
-          // scoreText.style.animation = "scoreUp 0.5s ease-in-out forwards";
           arrayClickedBoxes[0].element.classList.add("box-paired");
           arrayClickedBoxes[1].element.classList.add("box-paired");
           arrayClickedBoxes[0].element.style.animation =
@@ -143,18 +132,18 @@ let arraySrc = [
   "imgGame/tigerWalking.gif",
   "imgGame/tigerTalking1.gif",
   "imgGame/tigergif2.gif",
-  "imgGame/vatsan1.png",
+  "imgGame/vatsan1_1.png",
   "imgGame/vatsan6.gif",
-  "imgGame/vatsan3.png",
-  "imgGame/vatsan4.png",
-  "imgGame/vatsan5.png",
+  "imgGame/vatsan3_1.png",
+  "imgGame/vatsan1_4.png",
+  "imgGame/vatsan5_1.png",
+  "imgGame/vatsan2_1.png",
   "imgGame/tiger4.png",
   "imgGame/tiger3.png",
   "imgGame/tiger2.png",
   "imgGame/tiger1.png",
   "imgGame/kotkagif.gif",
   "imgGame/kotkaRotation.gif",
-  "imgGame/vatsanRotation.gif",
   "imgGame/kotkaIdea.gif",
   "imgGame/kotkagif1.gif",
   "imgGame/vatsangif1.gif",
@@ -194,19 +183,28 @@ function loadBoard() {
 
 function checkWin() {
   if (parseInt(scoreText.innerText) == 80) {
+    isGameWon = true;
+    game.style.display = "none";
+    replayScreen.style.display = "flex";
     winScreen.style.display = "block";
     scoreTimeScreen.style.display = "none";
+    isTimeUp = false;
   }
 }
 
 function startTimer(time) {
   let counter = setInterval(timer, 1000);
   function timer() {
+    if (isGameWon == true) {
+      return;
+    }
     timeText.innerText = time;
     time--;
     timeText.innerText = time;
     if (time == 0) {
       isTimeUp = true;
+      game.style.display = "none";
+      replayScreen.style.display = "flex";
       loseScreen.style.display = "block";
       scoreTimeScreen.style.display = "none";
       clearInterval(counter);
@@ -237,13 +235,7 @@ function scoreUpper() {
 
 randomEight();
 sixteenArray = eightArray.concat(eightArray);
-//console.log([...sixteenArray]);
 
 shuffle(sixteenArray);
-//console.log([...sixteenArray]);
-//console.log(sixteenArray[0]);
 
 loadBoard();
-console.log(score);
-console.log(scoreText.innerText);
-console.log(parseInt(scoreText.innerText));

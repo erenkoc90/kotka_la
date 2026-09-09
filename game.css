@@ -1,5 +1,6 @@
 #main-game {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   font-size: 15pt;
   margin: 20px;
@@ -15,12 +16,13 @@ article {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   /* flex-grow: 2; */
   border: 2px solid var(--green_dark3);
   margin: 20px;
   padding: 10px;
-  /* min-height: 100vh; */
+  min-height: unset;
+  min-width: unset;
   max-width: 100%;
   background-color: var(--green_light1a);
   color: var(--gray_light1);
@@ -92,8 +94,8 @@ img {
 .win-screen {
   display: none;
   width: 100%;
-  background-color: var(--green_dark1);
-  border: 2px solid var(--green_dark3);
+  background-color: var(--green_dark3);
+  border: 2px solid var(--green_light1);
   text-align: center;
   padding: 0px;
   font-size: 30px;
@@ -123,6 +125,15 @@ img {
     transform: scale(0.1);
     transform: rotate(100deg);
     opacity: 0;
+  }
+}
+
+@keyframes gameScreenFin {
+  0% {
+    translate: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
   }
 }
 
@@ -255,4 +266,22 @@ img {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+.replay-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--green);
+  color: var(--green_light1);
+  border: 2px solid var(--green_light1);
+  font-size: 30px;
+}
+
+.replay-screen:hover {
+  background-color: var(--green_light1);
+  color: var(--green_dark1);
+  border: 2px solid var(--green_dark2);
+  cursor: pointer;
 }
