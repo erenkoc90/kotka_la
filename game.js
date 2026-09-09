@@ -3,9 +3,12 @@ let eightArray = [];
 let sixteenArray = [];
 let arrayClickedBoxes = [];
 let score = 0;
-const scoreText = document.getElementById("score");
+let isTimeUp = false;
+const scoreText = document.getElementById("score-value");
 const timeText = document.getElementById("time-value");
 const winScreen = document.querySelector(".win-screen");
+const loseScreen = document.querySelector(".lose-screen");
+const scoreTimeScreen = document.querySelector("#st-container");
 
 // Class Box for box constructor
 class Box {
@@ -54,7 +57,11 @@ class Box {
     //   this.backSide.style.display = "none";
     // }
     this.element.addEventListener("click", () => {
+      scoreText.style.animation = "";
       if (this.isCardPaired == true) {
+        return;
+      }
+      if (isTimeUp == true) {
         return;
       }
       if (arrayClickedBoxes.length == 2) {
@@ -75,9 +82,9 @@ class Box {
         this.compare();
         if (this.isCardPaired == true) {
           console.log("PAIRED");
-          score++;
+          score += 10;
           scoreText.innerText = score;
-          console.log("SCORE: " + score);
+          scoreText.style.animation = "scoreUp 0.5s ease-in-out forwards";
           arrayClickedBoxes[0].element.classList.add("box-paired");
           arrayClickedBoxes[1].element.classList.add("box-paired");
           arrayClickedBoxes[0].element.style.animation =
@@ -168,6 +175,7 @@ function shuffle(arrayName) {
 }
 
 function loadBoard() {
+  startTimer(100);
   for (let i = 0; i < sixteenArray.length; i++) {
     setTimeout(() => {
       new Box(sixteenArray[i]);
@@ -176,8 +184,9 @@ function loadBoard() {
 }
 
 function checkWin() {
-  if (score == 8) {
+  if (score == 80) {
     winScreen.style.display = "block";
+    scoreTimeScreen.style.display = "none";
   }
 }
 
@@ -188,13 +197,29 @@ function startTimer(time) {
     time--;
     timeText.innerText = time;
     if (time == 0) {
+      isTimeUp = true;
+      loseScreen.style.display = "block";
+      scoreTimeScreen.style.display = "none";
       clearInterval(counter);
       return;
     }
   }
 }
 
-function scoreCounter() {}
+// function scoreCounter(score) {
+//   let counter = setInterval(counterScore, 2000);
+//   function counterScore() {
+//     for (let i = 0; i <= 10; i++) {
+//       console.log(score + i);
+//     }
+//     if (score == score + 10) {
+//       clearInterval(counter);
+//       return;
+//     }
+//   }
+// }
+
+//scoreCounter(10);
 
 randomEight();
 sixteenArray = eightArray.concat(eightArray);
@@ -205,4 +230,3 @@ shuffle(sixteenArray);
 //console.log(sixteenArray[0]);
 
 loadBoard();
-startTimer(100);

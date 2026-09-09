@@ -95,7 +95,16 @@ img {
   background-color: var(--green_dark1);
   border: 2px solid var(--green_dark3);
   text-align: center;
-  padding: 5px;
+  padding: 0px;
+  font-size: 30px;
+}
+.lose-screen {
+  display: none;
+  width: 100%;
+  background-color: rgb(255, 54, 54);
+  border: 2px solid var(--green_dark3);
+  text-align: center;
+  padding: 0px;
   font-size: 30px;
 }
 
@@ -146,6 +155,28 @@ img {
     transform: scale(
       1.1
     ); /* Leichtes "Ãœbersteuern" fÃ¼r einen coolen Bounce-Effekt */
+  }
+  100% {
+    transform: scale(1); /* Endet in NormalgrÃ¶ÃŸe */
+    opacity: 1;
+  }
+}
+@keyframes scoreUp {
+  0% {
+    transform: scale(1); /* Startet unsichtbar/winzig */
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(1); /* Endet in NormalgrÃ¶ÃŸe */
+    opacity: 0.91;
   }
   100% {
     transform: scale(1); /* Endet in NormalgrÃ¶ÃŸe */
@@ -209,7 +240,7 @@ img {
 
 #score-value {
   margin-left: 15px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 #time-value {
   margin-left: 15px;
