@@ -3,8 +3,10 @@ let eightArray = [];
 let sixteenArray = [];
 let arrayClickedBoxes = [];
 let score = 0;
+
 let isTimeUp = false;
 const scoreText = document.getElementById("score-value");
+const scoreH3 = document.querySelector("#score");
 const timeText = document.getElementById("time-value");
 const winScreen = document.querySelector(".win-screen");
 const loseScreen = document.querySelector(".lose-screen");
@@ -82,9 +84,16 @@ class Box {
         this.compare();
         if (this.isCardPaired == true) {
           console.log("PAIRED");
-          score += 10;
-          scoreText.innerText = score;
-          scoreText.style.animation = "scoreUp 0.5s ease-in-out forwards";
+          // score += 10;
+          // scoreText.innerText = score;
+          scoreUpper();
+          console.log(scoreUpper());
+          console.log(score);
+          console.log(scoreText.innerText);
+          console.log(parseInt(scoreText.innerText));
+
+          // score = scoreUpper();
+          // scoreText.style.animation = "scoreUp 0.5s ease-in-out forwards";
           arrayClickedBoxes[0].element.classList.add("box-paired");
           arrayClickedBoxes[1].element.classList.add("box-paired");
           arrayClickedBoxes[0].element.style.animation =
@@ -96,7 +105,7 @@ class Box {
           arrayClickedBoxes[0].isCardPaired = true;
           arrayClickedBoxes[1].isCardPaired = true;
           arrayClickedBoxes = [];
-          checkWin();
+          //checkWin();
           return;
         } else {
           console.log("TRY AGAIN!");
@@ -175,7 +184,7 @@ function shuffle(arrayName) {
 }
 
 function loadBoard() {
-  startTimer(100);
+  startTimer(60);
   for (let i = 0; i < sixteenArray.length; i++) {
     setTimeout(() => {
       new Box(sixteenArray[i]);
@@ -184,7 +193,7 @@ function loadBoard() {
 }
 
 function checkWin() {
-  if (score == 80) {
+  if (parseInt(scoreText.innerText) == 80) {
     winScreen.style.display = "block";
     scoreTimeScreen.style.display = "none";
   }
@@ -206,20 +215,25 @@ function startTimer(time) {
   }
 }
 
-// function scoreCounter(score) {
-//   let counter = setInterval(counterScore, 2000);
-//   function counterScore() {
-//     for (let i = 0; i <= 10; i++) {
-//       console.log(score + i);
-//     }
-//     if (score == score + 10) {
-//       clearInterval(counter);
-//       return;
-//     }
-//   }
-// }
+function scoreUpper() {
+  scoreH3.style.animation = "";
+  let counter = setInterval(e, 30);
+  let currentScore = parseInt(scoreText.innerText);
+  let goalScore = currentScore + 10;
+  function e() {
+    currentScore += 1;
+    scoreText.innerText = currentScore;
 
-//scoreCounter(10);
+    if (currentScore == goalScore) {
+      clearInterval(counter);
+      scoreText.innerText = currentScore;
+      scoreH3.style.animation = "scoreUp 0.5s ease-in-out forwards";
+      score = currentScore;
+      checkWin();
+      return;
+    }
+  }
+}
 
 randomEight();
 sixteenArray = eightArray.concat(eightArray);
@@ -230,3 +244,6 @@ shuffle(sixteenArray);
 //console.log(sixteenArray[0]);
 
 loadBoard();
+console.log(score);
+console.log(scoreText.innerText);
+console.log(parseInt(scoreText.innerText));
