@@ -1,0 +1,25 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "tile1.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "/Users/eren/Desktop/01_html/kotkala_github/kotaka_web/kotkala/img/characters/tiger/walking1",
+    "map.fixedSize": true,
+    "map.width": 20,
+    "openFiles": [
+        "tile1.tsx"
+    ],
+    "project": "tile1.tiled-project",
+    "recentFiles": [
+        "tile1.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}

@@ -155,7 +155,7 @@ aside {
   margin: 20px;
   padding: 10px;
   min-height: 100vh;
-  /*min-width: 10vw;*/
+  width: 15%;
   background-color: var(--green_light1a);
 }
 article {
@@ -167,7 +167,7 @@ article {
   margin: 20px;
   padding: 10px;
   min-height: 100vh;
-  max-width: 50%;
+  /* width: 50%; */
   background-color: var(--green_light1a);
   color: var(--gray_light1);
 }

@@ -1,0 +1,40 @@
+main {
+  height: 100%;
+}
+article {
+  min-height: 100%;
+}
+
+.container_game {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.game_container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 640px;
+  width: 640px;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+}
+
+#char1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scale(0.5);
+  /* justify-content: center;
+  align-items: center; */
+  /* width: 50%;
+  height: 50%; */
+}
+#tigerWalkNorth {
+  display: none;
+}

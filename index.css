@@ -1,0 +1,22 @@
+.aside_container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+#walking-tiger1 {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  animation: walk 10s linear infinite;
+}
+
+@keyframes walk {
+  0% {
+    transform: translateY(100);
+  }
+  100% {
+    transform: translateY(-280%);
+  }
+}
