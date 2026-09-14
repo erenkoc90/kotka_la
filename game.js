@@ -152,10 +152,6 @@ let arraySrc = [
 
 // FUNCTIONS
 
-function randomIndexNumber(arrayName) {
-  return Math.floor(Math.random() * arrayName.length);
-}
-
 function randomEight() {
   for (let i = 1; i <= 8; i++) {
     let a = arraySrc.splice(randomIndexNumber(arraySrc), 1);
@@ -163,6 +159,9 @@ function randomEight() {
   }
 }
 
+function randomIndexNumber(arrayName) {
+  return Math.floor(Math.random() * arrayName.length);
+}
 function shuffle(arrayName) {
   for (let i = arrayName.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));

@@ -5,15 +5,15 @@ const tigerWalkNorth = document.getElementById("tigerWalkNorth");
 const tigerWalkSouth = document.getElementById("tigerWalkSouth");
 
 function randomPosition() {
-  return Math.random() * 640 + "px";
+  return Math.random() * 580 + "px";
 }
 
 class Obstacle {
-  constructor(imgSrc) {
+  constructor() {
     this.div = document.createElement("div");
     this.div.classList.add("obstacle");
     this.img = document.createElement("img");
-    this.img.src = imgSrc;
+    this.img.src = arrayObstacleImg[randomIndexNumber(arrayObstacleImg)];
     this.div.style.top = randomPosition();
     this.div.style.right = randomPosition();
     this.div.appendChild(this.img);
@@ -23,37 +23,28 @@ class Obstacle {
   checkCollisionObstacle() {
     const char1Position = char1.getBoundingClientRect();
     const obstaclePosition = this.div.getBoundingClientRect();
+    let isColliding = false;
+
     if (
       char1Position.right > obstaclePosition.left &&
       char1Position.left < obstaclePosition.right &&
       char1Position.bottom > obstaclePosition.top &&
       char1Position.top < obstaclePosition.bottom
     ) {
+      this.isColliding = true;
       console.log("CARPISMA OLDU!!!");
       this.div.classList.add("collision-animation");
-      this.div.addEventListener("animationend", () => {
-        this.div.remove();
-      });
+      this.div.addEventListener(
+        "animationend",
+        () => {
+          this.div.remove();
+          new Obstacle();
+        },
+        { once: true }
+      );
     }
   }
 }
-
-/*function checkCollision() {
-  const char1Position = char1.getBoundingClientRect();
-  const obstacle1Position = obstacle.getBoundingClientRect();
-  if (
-    char1Position.right > obstacle1Position.left &&
-    char1Position.left < obstacle1Position.right &&
-    char1Position.bottom > obstacle1Position.top &&
-    char1Position.top < obstacle1Position.bottom
-  ) {
-    console.log("CARPISMA OLDU!!!");
-    obstacle.classList.add("collision-animation");
-    obstacle.addEventListener("animationend", () => {
-      obstacle.remove();
-    });
-  }
-}*/
 
 document.addEventListener("keydown", (event) => {
   const key = event.key;
@@ -89,10 +80,42 @@ document.addEventListener("keydown", (event) => {
   }
   allObstacles.forEach((obstacle) => {
     obstacle.checkCollisionObstacle();
+    console.log(allObstacles.length);
   });
 });
 
-let object2 = new Obstacle("imgGame2/obj/pilow1.png");
-let object3 = new Obstacle("imgGame2/obj/ball1.png");
+function randomIndexNumber(arrayName) {
+  return Math.floor(Math.random() * arrayName.length);
+}
 
+function shuffle(arrayName) {
+  for (let i = arrayName.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let k = arrayName[i];
+    arrayName[i] = arrayName[j];
+    arrayName[j] = k;
+  }
+}
+
+let arrayObstacleImg = [
+  "imgGame2/obj/pilow1.png",
+  "imgGame2/obj/pillow2.png",
+  "imgGame2/obj/ball1.png",
+];
+
+console.log(randomIndexNumber(arrayObstacleImg));
+console.log(arrayObstacleImg[randomIndexNumber(arrayObstacleImg)]);
+
+//let object2 = new Obstacle();
+// let object3 = new Obstacle("imgGame2/obj/pillow2.png");
+// let object4 = new Obstacle("imgGame2/obj/ball1.png");
+// let object5 = new Obstacle("imgGame2/obj/pilow1.png");
+
+function loadObstacle(number) {
+  for (let a = 1; a <= number; a++) {
+    new Obstacle();
+  }
+  return;
+}
+loadObstacle(5);
 console.log(allObstacles);
