@@ -23,11 +23,12 @@ article {
   padding: 0px;
   margin: 0px;
   background-color: white;
+  overflow: hidden;
 }
 
 #char1 {
   position: absolute;
-  bottom: 0;
+  top: 360px;
   left: 0;
   transform: scale(0.5);
   /* justify-content: center;
@@ -37,4 +38,65 @@ article {
 }
 #tigerWalkNorth {
   display: none;
+}
+
+.sliding-background {
+  background: url("imgGame2/tileMAP/map2.png") repeat-y;
+
+  width: 640px;
+  height: 1920px;
+  animation: slide 5s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-640px);
+  }
+}
+
+@keyframes collision {
+  0% {
+    transform: translateX(3px);
+  }
+  10% {
+    transform: translateX(-3px);
+  }
+  20% {
+    transform: translateX(-3px);
+  }
+  60% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(3px);
+    opacity: 0;
+  }
+}
+
+.obstacle {
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  /* background-color: red; */
+}
+
+#obs2 {
+  right: 300px;
+}
+
+#obs3 {
+  bottom: 300px;
+}
+
+.collision-animation {
+  animation: collision 0.3s ease-in-out forwards;
 }

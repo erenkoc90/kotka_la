@@ -1,0 +1,49 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "pinkpinkpink.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3.15
+        },
+        "pinkpinkpink2.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 3.15
+        },
+        "tileMap1.tmx": {
+            "scale": 1.0678,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 319.81644502715864,
+                "y": 1274.1150028095149
+            }
+        },
+        "tiles2_2.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3.15
+        },
+        "tilesGreen.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 8.0133
+        }
+    },
+    "last.imagePath": "/Users/eren/Desktop/01_html/kotkala_github/kotaka_web/kotkala/imgGame2/tileMAP",
+    "map.height": 80,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 20,
+    "openFiles": [
+    ],
+    "project": "tileMAP.tiled-project",
+    "recentFiles": [
+        "tilesGreen.tsx",
+        "tiles2_2.tsx",
+        "pinkpinkpink2.tsx",
+        "pinkpinkpink.tsx",
+        "tileMap1.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 0
+}
