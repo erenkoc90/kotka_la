@@ -102,6 +102,12 @@ article {
   animation: collision 0.3s ease-in-out forwards;
 }
 
+#enemy {
+  position: absolute;
+  top: 360px;
+  left: 360px;
+}
+
 @keyframes disappear {
   0% {
     transform: scale(1);
