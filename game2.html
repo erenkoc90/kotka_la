@@ -27,24 +27,45 @@
     <main id="main-game">
       <article class="container_game">
         <h2 id="welcome">KOTKA_GAME</h2>
-
+        <div class="score-time-container" id="st-container">
+          <div id="score-container" class="st-table">
+            <h3><span>S C O R E : </span></h3>
+            <h3 id="score"><span id="score-value">0</span></h3>
+          </div>
+          <div id="time-container" class="st-table">
+            <h3 id="time">
+              <span>T I M E : </span><span id="time-value">60</span>
+            </h3>
+          </div>
+        </div>
         <div class="game_container">
           <div class="game2">
             <div class="sliding-background"></div>
+            <div id="game-over" class="game-over-screen">
+              <div id="textGameOver" class="gameOverShown">
+                <h2>GAME</h2>
+                <h2>OVER</h2>
+              </div>
+              <div id="textPlayAgain" class="gameOverUnshown">
+                <h2>PLAY</h2>
+                <h2>AGAIN</h2>
+              </div>
+            </div>
             <div id="enemy">
               <img src="imgGame2/enemy1_1.gif" alt="" />
             </div>
             <div id="char1">
               <img
                 id="tigerWalkNorth"
-                src="imgGame2/tigerWalkNord.gif"
+                src="imgGame2/tigerWalkNord-ezgif.gif"
                 alt=""
               />
               <img
                 id="tigerWalkSouth"
-                src="imgGame2/tigerWalkSouth.gif"
+                src="imgGame2/tigerWalkSouth-ezgif.gif"
                 alt=""
               />
+              <img id="tigerWon" src="imgGame2/tigerWon1.gif" alt="" />
             </div>
           </div>
         </div>
