@@ -1,0 +1,63 @@
+{
+  "group_id": "1b73bad5-73a3-4f87-bde5-7c8d382846f5",
+  "states": [
+    {
+      "character": {
+        "id": "29b6855a-24bc-4a3a-a5b6-dd849369b596",
+        "name": "Idle",
+        "prompt": "two pigeons,they losely holding a thin rope in their beaks",
+        "size": {
+          "width": 256,
+          "height": 256
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-09-05T06:13:33.184602+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "the_right_one_tries_to_fly_but_the_other_doesnt_le": {
+            "north-west": [
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_000.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_001.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_002.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_003.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_004.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_005.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_006.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_007.png",
+              "Idle/animations/the_right_one_tries_to_fly_but_the_other_doesnt_le/north-west/frame_008.png"
+            ]
+          },
+          "subtle_hopping_then_landing_still_holding_the_rope": {
+            "south-east": [
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_000.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_001.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_002.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_003.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_004.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_005.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_006.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_007.png",
+              "Idle/animations/subtle_hopping_then_landing_still_holding_the_rope/south-east/frame_008.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-10-09T11:02:40.611600"
+}
