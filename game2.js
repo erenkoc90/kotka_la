@@ -8,7 +8,10 @@ let game2 = document.querySelector(".game2");
 const gameContainer = document.querySelector(".game_container");
 const gameOverScreen = document.querySelector("#game-over");
 const gameOverText = document.querySelector("#textGameOver");
+const gameWonScreen = document.querySelector("#game-won");
+const gameWonText = document.querySelector("#textGameWon");
 const playAgainText = document.querySelector("#textPlayAgain");
+const playAgainTextWon = document.querySelector("#textPlayAgainWon");
 const scoreText = document.getElementById("score-value");
 const scoreH3 = document.querySelector("#score");
 const timeText = document.getElementById("time-value");
@@ -45,11 +48,14 @@ function scoreUpper() {
 }
 
 function checkWin() {
-  if (parseInt(scoreText.innerText) >= 40) {
+  if (parseInt(scoreText.innerText) >= 300) {
     isGameWon = true;
     tigerWon.style.display = "block";
     tigerWalkNorth.remove();
     tigerWalkSouth.remove();
+    // gameWonScreen.style.display = "block";
+    gameWonScreen.classList.remove("game-won-screen");
+    gameWonScreen.classList.add("gameWonBG");
     enemy.classList.add("enemyLost");
     enemy.addEventListener(
       "animationend",
@@ -86,9 +92,18 @@ function startTimer(time) {
       clearInterval(counter);
       return;
     }
+    if (isGameWon) {
+      allObstacles.forEach((obstacle) => {
+        obstacle.div.remove();
+      });
+      allObstacles = [];
+      clearInterval(counter);
+      return;
+    }
   }
 }
 
+//GAME OVER SCREEN
 gameOverText.addEventListener("mouseenter", () => {
   gameOverText.classList.add("gameOverUnshown");
   gameOverText.classList.remove("gameOverShown");
@@ -104,6 +119,28 @@ playAgainText.addEventListener("mouseleave", () => {
   gameOverText.classList.add("gameOverShown");
 });
 playAgainText.addEventListener("click", () => {
+  location.reload();
+});
+
+//GAME WON SCREEN
+gameWonText.addEventListener("mouseenter", () => {
+  gameWonText.classList.add("gameWonUnshown");
+  gameWonText.classList.remove("gameWonShown");
+  playAgainTextWon.classList.remove("gameWonUnshown");
+  playAgainTextWon.classList.add("gameWonShown");
+  playAgainTextWon.classList.add("gameWonBGHover");
+  gameWonScreen.classList.add("gameWonBGHover");
+});
+playAgainTextWon.addEventListener("mouseleave", () => {
+  playAgainTextWon.classList.add("gameWonUnshown");
+  playAgainTextWon.classList.remove("gameWonShown");
+  gameWonText.classList.remove("gameWonUnshown");
+  gameWonText.classList.add("gameWonShown");
+});
+playAgainText.addEventListener("click", () => {
+  location.reload();
+});
+playAgainTextWon.addEventListener("click", () => {
   location.reload();
 });
 
@@ -263,6 +300,11 @@ let arrayObstacleImg = [
   "imgGame2/obj/needlecushion1.png",
   "imgGame2/obj/needlecushion2.png",
   "imgGame2/obj/needlecushion3.png",
+  "imgGame2/obj/pillow3_1obj.png",
+  "imgGame2/obj/makara1 Background Removed.png",
+  "imgGame2/obj/sewingMach1.png",
+  "imgGame2/obj/embrHoop2obj.png",
+  "imgGame2/gerak_gif.gif",
 ];
 
 let frameCounter = 0;
@@ -273,8 +315,6 @@ function updateEnemy(timestamp) {
   let enemySpeed = parseInt(allObstacles.length);
   frameCounter++;
   checkEnemyCatch();
-
-  //console.log(frameCounter, frameCounter % 3);
 
   if (frameCounter % 3 == 0) {
     if (char1Position.left < enemyPosition.left) {
@@ -300,15 +340,11 @@ function updateEnemy(timestamp) {
     enemy.classList.add("enemyCatch");
     gameOverScreen.classList.remove("game-over-screen");
     gameOverScreen.classList.add("gameOverBG");
-    // slidingBackground.style.display = "none";
     allObstacles.forEach((obstacle) => {
       obstacle.div.remove();
     });
     allObstacles = [];
   }
-  // allObstacles.forEach((obstacle) => {
-  //   obstacle.checkCollisionEnemy();
-  // });
 }
 
 function updateObstacle(timestamp) {
@@ -329,7 +365,7 @@ function loadObstacle(number) {
   return;
 }
 loadObstacle(2);
-startTimer(25);
+startTimer(60);
 console.log(allObstacles);
 requestAnimationFrame(updateEnemy);
 requestAnimationFrame(updateObstacle);
