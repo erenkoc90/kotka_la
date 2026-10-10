@@ -148,6 +148,10 @@ let arraySrc = [
   "imgGame/kotkagif1.gif",
   "imgGame/vatsangif1.gif",
   "imgGame/vatsangif2.gif",
+
+  "imgGame2/obj/sewingMach1.png",
+
+  "imgGame2/gerak_gif.gif",
 ];
 
 // FUNCTIONS
