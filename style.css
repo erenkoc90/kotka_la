@@ -101,8 +101,9 @@ a:any-link {
 }
 
 body {
+  box-sizing: border-box;
   margin: 0px;
-  max-width: 250vw;
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -110,11 +111,15 @@ body {
   background-color: var(--green_light2);
   font-family: "geist", Helvetica, sans-serif;
 }
-
+* {
+  box-sizing: border-box;
+}
 header {
   display: flex;
   flex-direction: column;
+  font-size: 90pt;
   align-items: center;
+  text-align: center;
   width: 100%;
 }
 
@@ -284,4 +289,319 @@ footer {
     transparent 4px,
     transparent 8px
   );
+}
+
+/*
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES (Mobile Fixes)
+   ========================================== */
+
+/* Target smartphones and small screens */
+@media (max-width: 860px) {
+  /* 1. Downscale the giant text so it fits mobile screens */
+  h1 {
+    font-size: 36pt !important;
+  }
+  h2 {
+    font-size: 28pt !important;
+  }
+
+  /* 2. Stack navigation buttons uniformly */
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+  .button_nav {
+    width: 90%;
+    margin: 0 auto !important;
+    font-size: 16pt;
+    padding: 12px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* 3. Stack main content: Left Aside (Top) -> Article (Middle) -> Right Aside (Bottom) */
+  main {
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  /* 4. TRANSFORM SIDEBARS INTO SLIM HORIZONTAL BANNERS */
+  aside {
+    display: block !important;
+    width: 100% !important;
+    min-height: auto !important; /* Remove the 100vh height constraint */
+    margin: 10px 0 !important;
+    padding: 5px !important;
+  }
+
+  /* Arrange your cute icons side-by-side instead of top-to-bottom */
+  .aside_container {
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    height: auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 5px !important;
+  }
+
+  /* Make the icon wrapper boxes and scales much smaller */
+  .obj,
+  .obj2,
+  .obj3 {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 5px !important;
+  }
+
+  .obj {
+    transform: scale(0.7) !important;
+  }
+  .obj2 {
+    transform: scale(0.7) !important;
+  }
+  .obj3 {
+    transform: scale(0.9) !important;
+  } /* Keeps pillow scaling balanced */
+
+  /* Ensure the actual images don't blow up the layout */
+  .aside_container img {
+    max-height: 45px !important;
+    width: auto !important;
+    object-fit: contain;
+  }
+
+  /* Handle your animated tiger image so it fits neatly */
+  #walking-tiger1 {
+    width: auto !important;
+    max-height: 45px !important;
+    animation: none !important; /* Disables vertical screen-breaking animation on mobile */
+  }
+
+  /* 5. Force your article content wrapper to take full width */
+  article {
+    width: 100% !important;
+    margin: 10px 0;
+    min-height: auto;
+  }
+
+  /* 6. Clean up padding inside the pink inner content wrapper */
+  .main_container {
+    margin: 10px;
+    padding: 20px 10px;
+    width: calc(100% - 20px);
+  }
+
+  #introduction {
+    font-size: 13pt;
+    line-height: 1.6;
+  }
+
+  /* 7. Fix footer proportions and align buttons perfectly */
+  footer {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .footer_container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 5px;
+  }
+  .button_footer {
+    width: 90%;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+  }
+
+  /* 8. Reset desktop margins breaking the mobile centering */
+  #instagram,
+  #imprint {
+    margin: 0 !important;
+  }
+
+  /* Reduce heavy container padding so the game has more room on tiny screens */
+  article {
+    padding: 5px !important;
+  }
+
+  .game_container {
+    margin: 10px 0 !important;
+    padding: 15px 10px !important; /* Tighten side padding from 30px to 10px */
+    width: 100% !important;
+  }
+  .container_game {
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .container_game p {
+    align-items: center;
+    text-align: center;
+  }
+  /* Allow the game grid to shrink lower than 300px on small viewports */
+  .game {
+    width: clamp(240px, 85vw, 700px) !important;
+    gap: 8px !important; /* Slightly tighten item gaps on mobile */
+    padding: 10px !important;
+  }
+
+  /* Make sure the text sizing in the score bar behaves gracefully on mobile */
+  .st-table {
+    font-size: 18px !important;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+  }
+}
+
+/* Target tablets and medium-sized screens */
+@media (min-width: 860px) and (max-width: 1024px) {
+  /* Downscale text a bit so it doesn't clip on tablets */
+  h1 {
+    font-size: 55pt !important;
+  }
+  h2 {
+    font-size: 36pt !important;
+  }
+
+  /* Shrink navigation buttons slightly so they stay on one line */
+  .button_nav {
+    font-size: 16pt;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  /* Tighten margins so columns don't squish the central box */
+  main {
+    margin: 5px;
+  }
+
+  /* Shrink the cute sidebars down so they don't crowd the center */
+  aside {
+    width: 12%;
+    margin: 10px;
+    padding: 5px;
+    min-height: auto; /* Keeps aside height dynamic if needed */
+  }
+
+  /* Give the main text card slightly more breathing room */
+  article {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  .main_container {
+    margin: 15px;
+    padding: 15px;
+    width: calc(100% - 30px);
+  }
+
+  /* ========================================================
+     FIX: RESET TRANSFORMS & SCALE OBJECTS CORRETLY FOR TABLET
+     ======================================================== */
+  .aside_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px; /* Clean spacing between stacked icons */
+    /* margin: 0 !important; */
+    padding: 5px !important;
+  }
+
+  .obj,
+  .obj2,
+  .obj3 {
+    width: 100% !important; /* Let containers fill the sidebar width */
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: scale(
+      1
+    ) !important; /* RESET desktop zoom to prevent overflowing boundaries */
+  }
+
+  /* Constrain the actual images fluidly inside the tablet container */
+  aside img {
+    max-width: 80% !important; /* Keep images scaled beautifully inside the narrow aside */
+    height: auto !important;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1126px) {
+  #aside_right {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1444px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+  }
+  .button_nav {
+    width: 90%;
+    margin: 0 auto !important;
+    font-size: 16pt;
+    padding: 12px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  aside {
+    width: 12%;
+    margin: 10px;
+    padding: 5px;
+    min-height: auto; /* Keeps aside height dynamic if needed */
+  }
+
+  /* Give the main text card slightly more breathing room */
+  article {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  .main_container {
+    margin: 15px;
+    padding: 15px;
+    width: calc(100% - 30px);
+  }
+  .aside_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px; /* Clean spacing between stacked icons */
+    /* margin: 0 !important; */
+    padding: 5px !important;
+  }
+
+  .obj,
+  .obj2,
+  .obj3 {
+    width: 100% !important; /* Let containers fill the sidebar width */
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: scale(
+      1
+    ) !important; /* RESET desktop zoom to prevent overflowing boundaries */
+  }
+
+  /* Constrain the actual images fluidly inside the tablet container */
+  aside img {
+    max-width: 80% !important; /* Keep images scaled beautifully inside the narrow aside */
+    height: auto !important;
+    object-fit: contain;
+  }
 }
